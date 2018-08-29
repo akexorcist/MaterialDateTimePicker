@@ -29,17 +29,17 @@ public interface DatePickerController {
 
     void onDayOfMonthSelected(int year, int month, int day);
 
-    void registerOnDateChangedListener(DatePickerDialog.OnDateChangedListener listener);
+    void registerOnDateChangedListener(OnDateChangedListener listener);
 
     @SuppressWarnings("unused")
-    void unregisterOnDateChangedListener(DatePickerDialog.OnDateChangedListener listener);
+    void unregisterOnDateChangedListener(OnDateChangedListener listener);
 
     MonthAdapter.CalendarDay getSelectedDay();
 
     boolean isThemeDark();
 
     int getAccentColor();
-    
+
     boolean isHighlighted(int year, int month, int day);
 
     int getFirstDayOfWeek();
@@ -60,7 +60,7 @@ public interface DatePickerController {
 
     Locale getLocale();
 
-    DatePickerDialog.Version getVersion();
+    Version getVersion();
 
-    DatePickerDialog.ScrollOrientation getScrollOrientation();
+    ScrollOrientation getScrollOrientation();
 }

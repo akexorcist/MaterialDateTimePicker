@@ -98,7 +98,7 @@ public class DefaultDateRangeLimiterPropertyTest {
         }
 
         @Override
-        public DatePickerDialog.Version getVersion() {
+        public Version getVersion() {
             return DatePickerDialog.Version.VERSION_2;
         }
 

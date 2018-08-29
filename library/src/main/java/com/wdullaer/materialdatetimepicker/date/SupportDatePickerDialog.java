@@ -19,7 +19,6 @@ package com.wdullaer.materialdatetimepicker.date;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -29,6 +28,7 @@ import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
@@ -59,7 +59,7 @@ import java.util.TimeZone;
 /**
  * Dialog allowing users to select a date.
  */
-public class DatePickerDialog extends DialogFragment implements
+public class SupportDatePickerDialog  extends DialogFragment implements
         OnClickListener, DatePickerController {
 
     private static final int UNINITIALIZED = -1;
@@ -165,10 +165,11 @@ public class DatePickerDialog extends DialogFragment implements
          *                    with {@link java.util.Calendar}.
          * @param dayOfMonth  The day of the month that was set.
          */
-        void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth);
+        void onDateSet(SupportDatePickerDialog view, int year, int monthOfYear, int dayOfMonth);
     }
 
-    public DatePickerDialog() {
+
+    public SupportDatePickerDialog() {
         // Empty constructor required for dialog fragment.
     }
 
@@ -180,8 +181,8 @@ public class DatePickerDialog extends DialogFragment implements
      * @param dayOfMonth  The initial day of the dialog.
      * @return a new DatePickerDialog instance.
      */
-    public static DatePickerDialog newInstance(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
-        DatePickerDialog ret = new DatePickerDialog();
+    public static SupportDatePickerDialog newInstance(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
+        SupportDatePickerDialog ret = new SupportDatePickerDialog();
         ret.initialize(callBack, year, monthOfYear, dayOfMonth);
         return ret;
     }
@@ -192,22 +193,22 @@ public class DatePickerDialog extends DialogFragment implements
      * @return a new DatePickerDialog instance
      */
     @SuppressWarnings("unused")
-    public static DatePickerDialog newInstance(OnDateSetListener callback) {
+    public static SupportDatePickerDialog newInstance(SupportDatePickerDialog.OnDateSetListener callback) {
         Calendar now = Calendar.getInstance();
-        return DatePickerDialog.newInstance(callback, now);
+        return SupportDatePickerDialog.newInstance(callback, now);
     }
 
     /**
-     * Create a new DatePickerDialog instance with a specific initial selection.
+     * Create a new SupportDatePickerDialog instance with a specific initial selection.
      * @param callback         How the parent is notified that the date is set.
      * @param initialSelection A Calendar object containing the original selection of the picker.
      *                         (Time is ignored by trimming the Calendar to midnight in the current
      *                         TimeZone of the Calendar object)
-     * @return a new DatePickerDialog instance
+     * @return a new SupportDatePickerDialog instance
      */
     @SuppressWarnings("unused")
-    public static DatePickerDialog newInstance(OnDateSetListener callback, Calendar initialSelection) {
-        DatePickerDialog ret = new DatePickerDialog();
+    public static SupportDatePickerDialog newInstance(OnDateSetListener callback, Calendar initialSelection) {
+        SupportDatePickerDialog ret = new SupportDatePickerDialog();
         ret.initialize(callback, initialSelection);
         return ret;
     }
@@ -1130,7 +1131,7 @@ public class DatePickerDialog extends DialogFragment implements
 
     public void notifyOnDateListener() {
         if (mCallBack != null) {
-            mCallBack.onDateSet(DatePickerDialog.this, mCalendar.get(Calendar.YEAR),
+            mCallBack.onDateSet(this, mCalendar.get(Calendar.YEAR),
                     mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH));
         }
     }
