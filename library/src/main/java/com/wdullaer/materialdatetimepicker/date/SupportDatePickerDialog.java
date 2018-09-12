@@ -97,9 +97,9 @@ public class SupportDatePickerDialog  extends DialogFragment implements
     private static final int ANIMATION_DURATION = 300;
     private static final int ANIMATION_DELAY = 500;
 
-    private static SimpleDateFormat YEAR_FORMAT = new SimpleDateFormat("yyyy", new Locale("th"));
-    private static SimpleDateFormat MONTH_FORMAT = new SimpleDateFormat("MMM", new Locale("th"));
-    private static SimpleDateFormat DAY_FORMAT = new SimpleDateFormat("dd", new Locale("th"));
+    private static SimpleDateFormat YEAR_FORMAT = new SimpleDateFormat("yyyy", new Locale("th", "TH"));
+    private static SimpleDateFormat MONTH_FORMAT = new SimpleDateFormat("MMM", new Locale("th", "TH"));
+    private static SimpleDateFormat DAY_FORMAT = new SimpleDateFormat("dd", new Locale("th", "TH"));
     private static SimpleDateFormat VERSION_2_FORMAT;
 
     private Calendar mCalendar = Utils.trimToMidnight(Calendar.getInstance(getTimeZone()));
