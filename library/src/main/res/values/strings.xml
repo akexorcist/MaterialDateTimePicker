@@ -20,8 +20,8 @@
     <string name="mdtp_date_v2_daymonthyear">EEE, MMM dd</string>
 
     <!-- Label for date or time [CHAR LIMIT=30] -->
-    <string name="mdtp_ok" translatable="false">@android:string/ok</string>
-    <string name="mdtp_cancel" translatable="false">@android:string/cancel</string>
+    <string name="mdtp_ok" translatable="false">ตกลง</string>
+    <string name="mdtp_cancel" translatable="false">ยกเลิก</string>
     <!--
          Content description for the hour selector in the time picker, which displays
          selectable hours of the day along the inside edge of a circle, as in an analog clock.
